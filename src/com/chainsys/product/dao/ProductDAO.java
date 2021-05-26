@@ -19,4 +19,5 @@ public interface ProductDAO {
 
 	void delete(int id);
 	void deleteproduct(LocalDate expiryDate);
+	void deleteproduct(String Name);
 }

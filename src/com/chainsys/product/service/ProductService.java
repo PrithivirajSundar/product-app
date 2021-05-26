@@ -20,5 +20,6 @@ public interface ProductService {
 
 	void delete(int id) throws ProductNotFoundException;
 	void deleteproduct(LocalDate expiryDate) throws ProductNotFoundException;
+	void deleteproduct(String Name) throws ProductNotFoundException;
 
 }

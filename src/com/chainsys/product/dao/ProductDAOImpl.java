@@ -157,5 +157,16 @@ public class ProductDAOImpl implements ProductDAO {
 		}
 
 	}
+	
+	public void deleteproduct(String Name) {
+		try {
+			pstmt = con.prepareStatement("delete product_2596 where Name=?");
+			pstmt.setString(1, Name);
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+	}
 
 }

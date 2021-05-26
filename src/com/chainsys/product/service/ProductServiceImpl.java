@@ -99,5 +99,16 @@ public class ProductServiceImpl implements ProductService {
 			dao.deleteproduct(expiryDate);
 		}
 	}
+	
+	@Override
+	public void deleteproduct(String Name) throws ProductNotFoundException {
+		Product Product = dao.findByName(Name);
+		if (Product == null) {
+			throw new ProductNotFoundException("Product doesn't exist!!");
+		} else {
+			dao.deleteproduct(Name);
+		}
+	}
+
 
 }

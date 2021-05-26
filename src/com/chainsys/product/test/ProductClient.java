@@ -113,7 +113,7 @@ public class ProductClient {
 			} catch (ProductNotFoundException e) {
 			}
 		case 9:
-			System.out.println("Deleting a Product");
+			System.out.println("Deleting a Product by ExpiryDate");
 //			System.out.println("Enter the Product Id");
 //			id = scanner.nextInt();
 			try {
@@ -121,6 +121,17 @@ public class ProductClient {
 				dateFormat = DateTimeFormatter.ofPattern("MM/dd/yyyy");
 				//Product product = service.findByDate(LocalDate.parse(date,dateFormat));	
 				service.deleteproduct(LocalDate.parse(date,dateFormat));
+				productSet = service.findAll();
+				System.out.println(productSet);
+			} catch (ProductNotFoundException e) {
+			}
+			
+		case 10:
+			System.out.println("Deleting a Product by Name");
+			System.out.println("Enter the Product Name");
+			Name = scanner.next();
+			try {
+				service.deleteproduct(Name);
 				productSet = service.findAll();
 				System.out.println(productSet);
 			} catch (ProductNotFoundException e) {
