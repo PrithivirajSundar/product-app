@@ -19,6 +19,6 @@ public interface ProductService {
 	void updateExpiryDate(Product Product) throws ProductNotFoundException;
 
 	void delete(int id) throws ProductNotFoundException;
-//	void deleteproduct(LocalDate expiryDate) throws ProductNotFoundException;
+	void deleteproduct(LocalDate expiryDate) throws ProductNotFoundException;
 
 }

@@ -112,9 +112,25 @@ public class ProductClient {
 				System.out.println(productSet);
 			} catch (ProductNotFoundException e) {
 			}
+		case 9:
+			System.out.println("Deleting a Product");
+//			System.out.println("Enter the Product Id");
+//			id = scanner.nextInt();
+			try {
+				date = "07/25/1999";
+				dateFormat = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+				//Product product = service.findByDate(LocalDate.parse(date,dateFormat));	
+				service.deleteproduct(LocalDate.parse(date,dateFormat));
+				productSet = service.findAll();
+				System.out.println(productSet);
+			} catch (ProductNotFoundException e) {
+			}
+			
 		default:
 			break;
 		}
+		
+		
 		scanner.close();
 	}
 
