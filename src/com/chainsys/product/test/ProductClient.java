@@ -37,6 +37,7 @@ public class ProductClient {
 				System.out.println(product);
 			} catch (ProductNotFoundException e) {
 			}
+			
 			break;
 			
 		case 6:
@@ -104,3 +105,4 @@ public class ProductClient {
 	}
 
 }
+//updated
