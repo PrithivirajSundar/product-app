@@ -19,6 +19,7 @@ public class ProductClient {
 		DateTimeFormatter dateFormat;
 		int id;
 		String Name;
+		//LocalDate expiryDate;
 		System.out.println("Enter the choice");
 		Scanner scanner = new Scanner(System.in);
 		int choice = scanner.nextInt();
@@ -38,6 +39,19 @@ public class ProductClient {
 			} catch (ProductNotFoundException e) {
 			}
 			
+			break;
+			
+		case 8:
+			System.out.println("Find the Product By ExpiryDate");
+			System.out.println("Enter the Product ExpiryDate");
+			//expiryDate = LocalDate.now();
+			try {
+				date = "07/25/1999";
+				dateFormat = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+				Product product = service.findByDate(LocalDate.parse(date,dateFormat));	
+				System.out.println(product);
+			} catch (ProductNotFoundException e) {
+			}
 			break;
 			
 		case 6:

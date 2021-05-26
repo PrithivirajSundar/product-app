@@ -6,6 +6,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -51,6 +52,22 @@ public class ProductDAOImpl implements ProductDAO {
 		try {
 			pstmt = con.prepareStatement("select * from product_2596 where id=?");
 			pstmt.setInt(1, id);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				product = new Product(rs.getInt("id"), rs.getString("name"), rs.getDate("expiry_date").toLocalDate());
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return product;
+	}
+	
+	@Override
+	public Product findByDate(LocalDate expiryDate) {
+		Product product = null;
+		try {
+			pstmt = con.prepareStatement("select * from product_2596 where Expiry_Date=?");
+			pstmt.setDate(1, Date.valueOf(expiryDate));
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
 				product = new Product(rs.getInt("id"), rs.getString("name"), rs.getDate("expiry_date").toLocalDate());
@@ -128,5 +145,17 @@ public class ProductDAOImpl implements ProductDAO {
 		}
 
 	}
+	
+//	@Override
+//	public void deleteproduct(LocalDate expiryDate) {
+//		try {
+//			pstmt = con.prepareStatement("delete product_2596 where expiryDate=?");
+//			pstmt.setDate(1, Date.valueOf(expiryDate));
+//			pstmt.executeUpdate();
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		}
+//
+//	}
 
 }
