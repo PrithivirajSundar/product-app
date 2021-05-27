@@ -2,6 +2,7 @@ package com.chainsys.product.test;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 import java.util.Scanner;
 import java.util.Set;
 
@@ -19,6 +20,7 @@ public class ProductClient {
 		DateTimeFormatter dateFormat;
 		int id;
 		String Name;
+		List<String> namelist;
 		//LocalDate expiryDate;
 		System.out.println("Enter the choice");
 		Scanner scanner = new Scanner(System.in);
@@ -28,6 +30,12 @@ public class ProductClient {
 			System.out.println("Find All Products");
 			productSet = service.findAll();
 			System.out.println(productSet);
+			break;
+			
+		case 11:
+			System.out.println("Find All Products Name");
+			namelist = service.findAllName();
+			System.out.println(namelist);
 			break;
 		case 2:
 			System.out.println("Find the Product By Id");
