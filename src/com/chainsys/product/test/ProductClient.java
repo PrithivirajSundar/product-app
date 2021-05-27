@@ -21,6 +21,7 @@ public class ProductClient {
 		int id;
 		String Name;
 		List<String> namelist;
+		List<Integer> idlist;
 		//LocalDate expiryDate;
 		System.out.println("Enter the choice");
 		Scanner scanner = new Scanner(System.in);
@@ -33,10 +34,17 @@ public class ProductClient {
 			break;
 			
 		case 11:
-			System.out.println("Find All Products Name");
+			System.out.println("Find All Product Name");
 			namelist = service.findAllName();
 			System.out.println(namelist);
 			break;
+			
+		case 12:
+			System.out.println("Find All Product Id");
+			idlist = service.findAllId();
+			System.out.println(idlist);
+			break;
+			
 		case 2:
 			System.out.println("Find the Product By Id");
 			System.out.println("Enter the Product Id");
